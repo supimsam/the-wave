@@ -1,0 +1,17 @@
+
+<%= @group.name %>
+
+<div class= "card">
+ 
+	<% @group.users.each do |user| %>
+
+	
+	<div class= "cards">
+		<%= user.id %>
+ 		<%= link_to 'Enter', users_path(user.id), class:'link' %>
+	</div>
+
+		<% end %>
+</div>
+
+

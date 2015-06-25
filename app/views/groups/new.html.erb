@@ -1,0 +1,15 @@
+<!-- form for creating a group -->
+
+
+<div class="group-form">
+
+<%= form_for @group do |f| %>
+	<div>
+		<%= f.text_field :name, :placeholder => "groupname" %>
+	</div>
+	<br>	
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>
+</div>

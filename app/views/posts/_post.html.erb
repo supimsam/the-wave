@@ -1,0 +1,60 @@
+
+	<div class="recent-header">
+		
+		
+		<h3><%= @theuser.groups.first.name %> </h3>   
+
+	<div class="name">
+		<h1><%= @theuser.email %> </h1>
+	</div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+	<% if current_user == @theuser %>	
+	
+		<div class= "create">
+			<%= link_to 'post', new_post_path %>
+		<br>
+			<%= link_to 'make group', new_group_path %>
+		</div>
+	<% end %>
+</div>
+	<div class="posts">
+
+	<% if @posts %> 
+		<% @posts.reverse.each do |post| %>
+			
+
+			<div class="body">
+				
+				<div class="post-body">
+					
+					<%= image_tag(post.image(:medium)) %>
+					
+					<h2><%= post.body %></h2>
+				</div>
+
+				<div id="circle">
+					<img src="http://i.imgur.com/0b5rfeg.png" align="center" width="20" height="18" alt="Gears" id="heart" align="center"/>
+				</div>
+<br>
+				<div class="delete">
+					<% if current_user == post.user %>
+						<%= link_to 'delete', post, method: :delete  %> 
+					<% end %>
+				</div>
+				
+				
+			</div>
+		<% end %>
+	<% end %>
+	</div>
+	
+	
+
+
+

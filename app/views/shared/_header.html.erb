@@ -1,0 +1,70 @@
+<% if !user_signed_in? %>
+ <div class="hero">
+  <div class="hero-inner">
+    <a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <h1>Welcome to the Wave!</h1>
+        <p>sign in or create an account</p>  
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+
+
+ <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+
+    <a href="javascript:void(0)" class="logo">
+      
+        <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+
+     <li class="nav-link">
+     <%= link_to 'The Wave', groups_path %></li>
+
+       
+
+          <% if user_signed_in? %>
+      
+      
+     <li class="nav-link">
+     <%= link_to 'profile', users_path(current_user.id) %></li>
+
+     
+
+      <li class="nav-link">
+      <%= link_to 'logout', destroy_user_session_path, class: :button, method: :delete %> </li>
+
+
+
+
+
+
+    <% else %>
+
+      <li class="nav-link">
+      <%= link_to 'sign up', new_user_registration_path, class: :button %></li>
+      
+        <li class="nav-link">
+      <%= link_to 'log in', new_user_session_path, class: :button %></li> 
+      
+       
+    <% end %>
+        
+      </ul>
+    </nav>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <form role="search">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+           
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
