@@ -15,6 +15,10 @@
  @import "bourbon";
  @import "neat";
 
+body {
+  margin: 0;
+}
+
 .hero {  
   $base-border-radius: 3px !default;
   $action-color: #477DCA !default;
@@ -44,6 +48,7 @@
     margin: auto;
     padding: 3.5em;
     text-align: center;
+
 
     .hero-copy {
       text-align: center;
@@ -121,27 +126,7 @@
     }
   }
 
-  // Mobile view
-
-  .navigation-menu-button {
-    color: $navigation-color;
-    display: block;
-    float: right;
-    font-weight: 700;
-    line-height: $navigation-height;
-    margin: 0;
-    padding-right: 1em;
-    text-transform: uppercase;
-
-    @include media ($horizontal-bar-mode) {
-      display: none;
-    }
-
-    &:focus,
-    &:hover {
-      color: $navigation-color-hover;
-    }
-  }
+  
 
   // Nav menu
 
@@ -197,9 +182,11 @@
     }
 
     a {
-      color: $navigation-color;
+      color: #E9E9E9; //navtextcolor
       display: inline-block;
       font-weight: 400;
+      font-size: 18px;
+      font-family: Helvetica Neue;
       text-decoration: none;
 
       @include media ($horizontal-bar-mode) {
@@ -208,7 +195,7 @@
 
       &:focus,
       &:hover {
-        color: $navigation-color-hover;
+        color: #0288AD; //hover color
       }
     }
   }
@@ -367,7 +354,7 @@
         background: $navigation-search-background;
         border-radius: $base-border-radius * 2;
         border: $navigation-search-border;
-        color: $navigation-color;
+        color: #E9E9E9;
         font-size: 0.9em;
         font-style: italic;
         margin: 0;
@@ -411,14 +398,24 @@
   }
 }
 
-.card {
+
+.blog-title h1 {
+  margin: 1%;
+  color: white;
+  font-family: Helvetica Neue;
   text-align: center;
-  padding: 100px;
+  margin: 6%;
 
 }
 
 
-.cards {
+.box {
+  text-align: center;
+
+}
+
+
+.boxes {
   
   border: 1px solid transparent; 
   border-radius: 6px 6px; 
@@ -427,11 +424,21 @@
   display: inline-block;
   margin: 1%;
   text-align: center;
-  padding-top: 300px;
-  background-color: #576B80;
+  padding-top: 150px;
+  background-color: white;
 
 
-  
+}
+
+.boxes a:hover {
+  color: #b2cecf;
+  font-weight: 900;
+
+}
+
+.boxes h1 {
+  color: transparentize(black, 0.3);
+  font-family: Helvetica Neue;
 }
 
 .link {
@@ -439,108 +446,42 @@
   font-size: 30px;
   padding: .25em .5em;
   display: block;
-  color: white;
+  color: #0288AD;
   text-decoration: none;
   margin-left: .5em;
+  font-family: Helvetica Neue;;
+  font-weight: 500;
  
- 
-}
-
-
-.recent-header {
-
-  position: fixed;
-  border: 1px solid transparent;
-  padding: .25em .5em;
-  color: black;
-  border-radius: 6px 6px;
-  background-color: white;
-  width: 350px;
-  height: 350px;
-  margin-bottom: 60px;
-  margin-top: 60px;
-
-
-}
-
-.recent-header h3 {
-
-  
-  font-style: italic;
-  font-size: 24px;
-  
-}
+ }
 
 .name {
   text-align: center;
   margin: 1%;
 }
 
-.posts {
-  
-  width: 70%;
-  display: inline-block;
-  
-  float: right;
-  font-weight: 200;
-  margin-bottom: 60px;
-  margin-top: 60px;
-  padding: .25em .5em;
-  
+.delete {
+  text-align: right;
+  font-size: 14px;
 
   
-
 }
 
-.body {
-  
-  border: 1px solid transparent;
-  background-color: #576B80;
-  padding: .25em .5em;
-  margin: 2em;
-  border-radius: 6px 6px;
-  width: 800px;
-  min-height: 300px;
-
+.delete a {
+  text-align: right;
+  color: #0288AD;
+  text-decoration: none;
 }
 
-
-.post-body {
-  float: left;
-  border: 1px solid transparent;
-  border-radius: 6px 6px;
-  width: 80%;
-  height: 80%;
-  background-color: white;
-  margin: 1%;
-  padding: .25em .5em;
+.delete a:hover {
+  color: transparentize(#0288AD, 0.3);
 
 }
-
-.post-body h2 {
-  float: right;
-
-
-}
-
-
-
 
 body {
- background-color: #D4D7FE;
+ background-color: #0288AD;
 
+ 
 }
-
-.create {
-
-  font-size: 20px;
-  text-align: right;
-  
-  text-decoration: none;
-
-}
-
-
 
 textarea {
 
@@ -564,17 +505,168 @@ textarea {
   
 }
 
-#circle {
-    float: right;
-    
-   
-}
-.delete {
-  float: right;
-}
+
 
 .group-form {
   margin: 2%;
 
 }
 
+
+
+.buttons a {
+
+  border-radius: 6px 6px;
+  float: right;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 8px 15px;
+  margin-top: 20px;
+  margin-right: 20px;
+  color: #E9E9E9;
+  font-family: Helvetica Neue;
+
+
+
+}
+
+.buttons a:hover {
+
+  color: transparentize(white, 0.3);
+  font-weight: 900;
+}
+
+.profile-header {
+  text-align: left;
+}
+
+.profile-header h1 {
+
+  text-align: center;
+  font-size: 38px;
+  font-family: Helvetica Neue;
+  margin-top: 6%;
+  color: white;
+  padding: 20px;
+  margin-bottom: 80px;
+}
+
+.profile {
+  position: fixed;
+  height: 300px;
+  width: 25%;
+  border: 1px solid transparent;
+  border-radius: 6px 6px;
+  background-color: white;
+  margin-left: 20px;
+  
+  
+}
+
+.profile h2 {
+  text-align: right;
+  font-family: Helvetica Neue;
+  
+}
+
+.profile h5 {
+  text-align: right;
+  font-family: Helvetica Neue;
+  color: transparentize(black, 0.3);
+
+}
+
+.profile-image {
+  float: left;
+  margin: 2%;
+}
+
+#social-bar ul {
+  display: block;
+}
+
+#social-bar li {
+  display: inline-block;
+  padding: 8px;
+  margin-top: 140px; 
+  float: right;
+}
+
+#facebook {
+  background: url(facebook.png) no-repeat;
+  background-size: contain;
+  height: 26px;
+  width: 26px;
+}
+
+#twitter {
+  background: url(twitter.png) no-repeat;
+  background-size: contain;
+  height: 26px;
+  width: 26px;
+}
+
+#instagram {
+  background: url(instagram.png) no-repeat;
+  background-size: contain;
+  height: 26px;
+  width: 26px;
+}
+
+
+
+
+.posts {
+  border: 1px solid transparent;
+  border-radius: 6px 6px;
+  background-color: white;
+  max-width: 60%;
+  padding: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  font-family: Helvetica Neue;
+  margin-left: 500px;
+
+  
+
+
+}
+
+.posts h3 {
+   text-align: left;
+   font-size: 24px;
+  
+}
+
+.posts p {
+  text-align: left;
+  font-size: 18px;
+  font-family: Helvetica Neue;
+  font-weight: 400;
+
+}
+
+.like {
+   margin-left: 700px;
+
+}
+
+.like p {
+
+    
+    height:28px;
+    width:60px;
+    color:white;
+    font-family:Calibri, Arial;
+    background-color: #23A3E4;
+    box-shadow: 3px 3px 3px #ccc;
+    border-radius:5px;
+    padding:10px 5px 0px 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.75s;
+}
+
+.like p:hover {
+    background-color: #01CC01;
+}

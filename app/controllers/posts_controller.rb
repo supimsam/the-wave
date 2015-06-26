@@ -18,8 +18,16 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def like
+    @post.liked_by current_user
+    redirect_to @post, notice: "New post created!"
+
+  end
+
+
   def create
     @post = Post.new(post_params)
+
 
     if @post.save
       redirect_to root_path, notice: "New post created!"
@@ -27,6 +35,8 @@ class PostsController < ApplicationController
       flash[:notice] = @post.errors.full_messages
       render :new
     end
+
+    
   end
 
   def update
@@ -37,13 +47,13 @@ class PostsController < ApplicationController
     @post.destroy
     respond_to do |format|
       format.html { redirect_to root_path, alert: "Post deleted." }
-      format.js { render nothing: true }
+      format.js #{ render nothing: true }
   end
 end
 private
 
 def post_params
-  params.require(:post).permit(:body, :image).merge(user: current_user)
+  params.require(:post).permit(:title, :body, :image).merge(user: current_user)
 end
 
 

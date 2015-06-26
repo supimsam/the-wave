@@ -1,9 +1,12 @@
 
+<!-- this is the first page a user sees when they sign up -->
 
 
 <% if user_signed_in? %>
-
-
+	<%= link_to 'make group', new_group_path %>
+	<%= link_to 'join', groups_path %>
+	<%= link_to 'profile', users_path(current_user.id) %>
+	<%= link_to 'edit', edit_user_registration_path %>
 <% else %>
  
 <h1>Welcome to the Wave!</h1>

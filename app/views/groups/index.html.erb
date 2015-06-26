@@ -1,21 +1,24 @@
 
 		<h3><%= current_user.email %> </h3>
-		<h3>You belong to <%= current_user.groups.first.name %> </h3>
+	
+<div class="box">
 <% @groups.each do |group| %>
+
+	<div class="boxes">
 	<%= link_to group.name, group_path(group) %>
 	<% if current_user.groups.include?(group) %>
 		<%= link_to 'leave', root_path %>
 	<% elsif current_user.groups.empty? %>
 		<%= link_to 'join', root_path %>
 	<% end %> 
-	<ul>
-	<% group.users.each do |user| %>
-		<li><%= user.email %></li>
-	<% end %>
-	</ul>	
-		
-	<hr>
-<% end %>
 
+	<% group.users.each do |user| %>
+		<%= user.email %>
+	<% end %>
+		
+	</div>	
+	
+<% end %>
+</div>
 
 
