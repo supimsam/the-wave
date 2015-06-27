@@ -19,9 +19,9 @@ class PostsController < ApplicationController
   end
 
   def like
+    @post = Post.find(params[:id])
     @post.liked_by current_user
-    redirect_to @post, notice: "New post created!"
-
+    redirect_to users_path(@post.user), notice: "You just liked it!"
   end
 
 

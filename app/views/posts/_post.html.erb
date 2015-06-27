@@ -2,15 +2,14 @@
 <% if current_user == @theuser %>	
 	
 	<div class= "buttons">
-		<%= link_to 'post', new_post_path %>
-		<%= link_to 'group', new_group_path %> 
+		<%= link_to 'post', new_post_path %> 
 	</div>
 <% end %>
 	
 <div class= "profile-header">
 
 	<h1><%= @theuser.title %></h1>
-		
+</div>		
 	<div class= "profile">
 		<div class= "profile-image">
 		<%= image_tag @theuser.avatar.url(:thumb) %>
@@ -19,6 +18,12 @@
 					<% if @user.groups.any? %>
 						<h5>@<%= @theuser.groups.first.name if @theuser.groups.any? %></h5>  
 					<% end %>
+<br>
+				<div class= "bio">
+					<h4><%= @theuser.description %></h4>
+				</div>
+
+		
 		<div id="social-bar"> 
 			<ul>
 				<li><div id="facebook" class="icon"></div></li>
@@ -27,7 +32,7 @@
 			</ul>
 		</div>
 	</div>
-</div>
+
 
 	
 <% if @posts %> 
@@ -36,12 +41,15 @@
 		<div class= "posts">
 			
 			<div class="like">
-				<p>Like</p>
+				<p><%= link_to 'Like', like_post_path(post.id), method: :put %></p>
 			</div>
+			<div class= "mainbio">
 				<h3><%= post.title %><h3>
 				<p><%= post.body %><p>
-				<%= image_tag post.image.url(:medium) %>
-
+				<%= image_tag post.image.url(:medium) %></div>
+				<div class= "votes">
+					<%= post.votes_for.size %>
+				</div>
 	   	
 		   	<div class="delete">
 				<% if current_user == post.user %>

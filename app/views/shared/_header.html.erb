@@ -17,11 +17,20 @@
 
           <% if user_signed_in? %>
 
+    <li class="nav-link more"><a href="javascript:void(0)">Me</a>
+      <ul class="submenu">
+        <li class="nav-link">
 
-      
-      
-     <li class="nav-link">
-     <%= link_to 'profile', users_path(current_user.id) %></li>
+          <%= link_to 'profile', users_path(current_user.id) %></li>
+              <li><%= link_to 'edit', edit_user_registration_path %></li>
+                  <li class="more"><a href="javascript:void(0)">Groups</a>
+                    <ul class="submenu">
+                      <li><%= link_to 'Create', new_group_path %></li>
+                      <li><%= link_to 'Join', groups_path %></li>
+                    </ul>
+                  </li>
+      </ul>
+    </li>
 
 
 
@@ -38,11 +47,9 @@
     <% else %>
 
       <li class="nav-link">
-      <%= link_to 'sign up', new_user_registration_path, class: :button %></li>
+      <%= link_to 'Browse', new_user_registration_path, class: :button %></li>
       
-        <li class="nav-link">
-      <%= link_to 'log in', new_user_session_path, class: :button %></li> 
-      
+        
        
     <% end %>
         
@@ -60,3 +67,7 @@
     </div>
   </div>
 </header>
+
+
+
+    

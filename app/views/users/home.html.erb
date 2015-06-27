@@ -1,15 +1,16 @@
 
-<!-- this is the first page a user sees when they sign up -->
-
-
-<% if user_signed_in? %>
-	<%= link_to 'make group', new_group_path %>
-	<%= link_to 'join', groups_path %>
-	<%= link_to 'profile', users_path(current_user.id) %>
-	<%= link_to 'edit', edit_user_registration_path %>
-<% else %>
+<!-- first page you see when yo go to this website
+ -->
+<div class= "wave">
  
 <h1>Welcome to the Wave!</h1>
-<p>sign in or create an account</p>
+	<p>sign in or create an account</p>
 
-<% end %>
+
+
+      <%= link_to 'sign up', new_user_registration_path, class: :button %>
+      
+       
+      <%= link_to 'log in', new_user_session_path, class: :button %> 
+
+  </div>
